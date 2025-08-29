@@ -10,7 +10,8 @@ from prompt import AGENT_INSTRUCTION, AGENT_RESPONSE
 
 load_dotenv(".env.local")
 
-
+# This project is an AI voice assistant that uses LiveKit Agents for real-time communication 
+# and Google Gemini for intelligence and responses.
 class Assistant(Agent):
     def __init__(self) -> None:
         super().__init__(instructions=AGENT_INSTRUCTION)
@@ -43,3 +44,19 @@ async def entrypoint(ctx: agents.JobContext):
 
 if __name__ == "__main__":
     agents.cli.run_app(agents.WorkerOptions(entrypoint_fnc=entrypoint))
+    
+
+'''
+    Usage:
+    python agent.py [OPTIONS] COMMAND [ARGS]...
+
+    Options:
+    --help            Show this message and exit.
+
+    Commands:
+    connect           Connect to a specific room
+    console           Start an interactive conversation in the console
+    dev               Start the worker in development mode
+    download-files    Download plugin dependency files
+    start             Start the worker in production mode
+'''
